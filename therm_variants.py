@@ -8,7 +8,6 @@ import random
 # Initialize the DHT device for temperature and humidity reading.
 # DHT11 sensor on pin D4 and DHT22 sensor on pin D18.
 dhtDevice = adafruit_dht.DHT11(board.D4)
-dhtDevice = adafruit_dht.DHT22(board.D18, use_pulseio=False)
 
 # Set up the Pygame window with a resolution of 1024x600 pixels.
 pygame.init()
@@ -89,7 +88,7 @@ def comic_display(temp):
 
 # Function to display temperature in console style.
 def console_display(temp):
-    font = pygame.font.SysFont('consolas', 60)
+    font = pygame.font.SysFont('dejavusansmono', 60)
 
     # Set background color.
     background = (0, 0, 0) 
@@ -109,8 +108,8 @@ def console_display(temp):
 
 # Function to display temperature in digital style.
 def digital_display(temp):
-    temp_font = pygame.font.SysFont('ibm3270semicondensed', 480)
-    disp_font = pygame.font.SysFont('ibm3270semicondensed', 60)
+    temp_font = pygame.font.SysFont('yaheiconsolashybrid', 480)
+    disp_font = pygame.font.SysFont('yaheiconsolashybrid', 60)
 
     # Set background color.
     background = (0, 0, 0) 
@@ -158,8 +157,8 @@ def lovelace_display(temp):
 
 # Function to display temperature in medieval style.
 def medieval_display(temp):
-    temp_font = pygame.font.SysFont('ebgaramondsc', 480)
-    disp_font = pygame.font.SysFont('ebgaramondsc', 60)
+    temp_font = pygame.font.SysFont('z003', 480)
+    disp_font = pygame.font.SysFont('z003', 60)
 
     # Set background color.
     background = (214, 197, 159) 
@@ -174,7 +173,7 @@ def medieval_display(temp):
     # Display temperature value.
     message_text = temp_font.render(str(temp), True, (35,35,35))
     message_rect = message_text.get_rect()
-    message_rect.center = (512, 280)
+    message_rect.center = (512, 380)
     screen.blit(message_text, message_rect)
 
     # Display "degrees Fahrenheit." text.
@@ -236,8 +235,8 @@ def pacman_display(temp, num, a):
 
 # Function to display temperature in seventies style.
 def seventies_display(temp):
-    temp_font = pygame.font.SysFont('sawasdee', 480)
-    disp_font = pygame.font.SysFont('sawasdee', 60)
+    temp_font = pygame.font.SysFont('nimbussansnarrow', 480)
+    disp_font = pygame.font.SysFont('nimbussansnarrow', 60)
 
     # Set background color.
     background = (35, 35, 35) 
@@ -336,6 +335,8 @@ while True:
     # Update temperature reading every 0.5 seconds.
     time.sleep(0.5)
     temp = round(temp, 1)
+
+
   
     # Display temperature using the selected view.
     if currv == 0:
