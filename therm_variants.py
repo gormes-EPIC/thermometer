@@ -15,7 +15,7 @@ screen = pygame.display.set_mode((1024, 600), 0, 32)
 pygame.display.set_caption('thermometer')
 
 # Initializations for display swaps
-screen_delay = 15
+screen_delay = 30
 viewt = time.time() + screen_delay
 currv = 0
 
