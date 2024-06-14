@@ -38,3 +38,5 @@ This is a list of all possible temperature display windows.
 ## Add a Display
 
 Want to add a display? Create a Python function using pygame for a 1024 by 600 pixel screen. Your function should accept at least one argument `temp`, which is the current temperature in the room. Once your design is complete, create a new branch on the project and upload your code and assets for review!
+
+These are the font available by default. You must include an addition `.ttf` file if you want to use another font: `'dejavuserif', 'urwbookman', 'dejavusansmono', 'pibotocondensed', 'liberationmono', 'nimbusmonops', 'notosansmono', 'freesans', 'p052', 'dejavusans', 'nimbussans', 'liberationsans', 'nimbussansnarrow', 'freeserif', 'c059', 'quicksandlight', 'freemono', 'pibotolt', 'z003', 'urwgothic', 'd050000l', 'liberationserif', 'piboto', 'nimbusroman', 'cantarell', 'droidsansfallback', 'quicksand', 'yaheiconsolashybrid', 'quicksandmedium', 'standardsymbolsps', 'notomono'`
