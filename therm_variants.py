@@ -307,7 +307,9 @@ def starwars_display(temp, z):
     message_rect = message_text.get_rect()
     message_rect.center = (512, z + 0.7*z)
     screen.blit(message_text, message_rect)
+    
 # Function to display temperature with a Tetris theme.
+# - J.P. 2024
 ColorPatters = [
 [(66, 66, 255),(99, 173, 255)],
 [(16, 148, 0),(140, 214, 0)],
@@ -345,7 +347,8 @@ def tetris_display(temp):
 
     # Background Rendering
     ogw, h = pygame.display.get_surface().get_size()
-    w = h+h*(((64*100)/480)/100)
+    h = 600
+    w = 1024
     img = pygame.transform.scale(pygame.image.load('Tetris_bg.png'), (w, h))
     screen.blit(img, ((ogw/2)-(w/2),0))
 
@@ -385,7 +388,7 @@ while True:
     # Check if it's time to switch the display view.
     if time.time() > viewt:
         viewt = time.time() + screen_delay
-        currv = random.randint(0,9)
+        currv = random.randint(0,10)
 
         # Reset screen background.
         background = (0, 0, 0) 
@@ -407,7 +410,6 @@ while True:
     # Update temperature reading every 0.5 seconds.
     time.sleep(0.5)
     temp = round(temp, 1)
-
     
     # Display temperature using the selected view.
     if currv == 0:
@@ -437,6 +439,8 @@ while True:
     elif currv == 9:
         z -= 20
         starwars_display(temp, z)
+    elif currv == 10:
+        tetris_display(temp)
 
     # Handle Pygame events.
     for event in pygame.event.get():
