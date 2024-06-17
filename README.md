@@ -6,34 +6,34 @@ This project displays the current temperature reading of  a DHT11 sensor connect
 This is a list of all possible temperature display windows. 
 
 ### Classic Display
-![Screenshot from 2024-06-14 11-17-20](https://github.com/gormes-EPIC/thermometer/assets/134316348/686a63d6-cde1-40a0-ba2d-776253c3d46d)
-
-### Console Display
-![Screenshot from 2024-06-14 11-14-48](https://github.com/gormes-EPIC/thermometer/assets/134316348/328278d9-d688-40f0-9361-fae39eed2d2b)
+![classic](https://github.com/gormes-EPIC/thermometer/assets/134316348/8bd66990-c26e-4dab-9f7e-413e9628564f)
 
 ### Comic Display
-![Screenshot from 2024-06-14 11-13-33](https://github.com/gormes-EPIC/thermometer/assets/134316348/c2db5c65-5862-4cc5-88ad-034509aad158)
+![comicsans](https://github.com/gormes-EPIC/thermometer/assets/134316348/a5dd3210-a879-4644-abab-ec9ae0913a78)
+
+### Console Display
+![console](https://github.com/gormes-EPIC/thermometer/assets/134316348/9c2769e0-fe94-4246-9c07-cec7184d931c)
 
 ### Digital Display
-![Screenshot from 2024-06-14 11-13-05](https://github.com/gormes-EPIC/thermometer/assets/134316348/2bad9c5e-b872-49dd-9220-9d56e3bb4271)
+![digital](https://github.com/gormes-EPIC/thermometer/assets/134316348/5b1b3a18-8f41-451a-8aa1-98fe3309f9cd)
 
 ### Lovelace Display
-![Screenshot from 2024-06-14 11-13-48](https://github.com/gormes-EPIC/thermometer/assets/134316348/ecb91b62-82e9-4198-808a-49eeb9a1189e)
+![lovelace](https://github.com/gormes-EPIC/thermometer/assets/134316348/10513ec9-518c-4032-abbb-582bb3d588b2)
 
 ### Medieval Display
-![Screenshot from 2024-06-14 11-14-02](https://github.com/gormes-EPIC/thermometer/assets/134316348/fe421cb5-377d-4e10-b1b9-cab1dd23abcd)
+![medieval](https://github.com/gormes-EPIC/thermometer/assets/134316348/b48049de-7f6c-4d62-8a13-8b5a10593499)
 
 ### Oregon Display
-![Screenshot from 2024-06-14 11-14-17](https://github.com/gormes-EPIC/thermometer/assets/134316348/2e853418-451e-441d-8f92-20fe2beaa53b)
+![oregon](https://github.com/gormes-EPIC/thermometer/assets/134316348/7adc48ed-71e9-4eea-bf3f-66d545dd93e1)
 
 ### Pacman Display
-![Screenshot from 2024-06-14 11-18-28](https://github.com/gormes-EPIC/thermometer/assets/134316348/32511e73-c565-4720-9227-73f83703ee56)
+![pacman](https://github.com/gormes-EPIC/thermometer/assets/134316348/fcbf15d4-d685-422b-bba7-86d95e6a056a)
 
 ### Seventies Display
-![Screenshot from 2024-06-14 11-12-41](https://github.com/gormes-EPIC/thermometer/assets/134316348/38c0c9d7-6559-4e66-88f0-fac33cd66323)
+![seventies](https://github.com/gormes-EPIC/thermometer/assets/134316348/97528186-27d4-4790-8d4f-97fc9f7e99f1)
 
 ### Star Wars Display
-![Screenshot from 2024-06-14 11-16-40](https://github.com/gormes-EPIC/thermometer/assets/134316348/f8be587e-c763-4800-aa51-d8c322dfd093)
+![starwars](https://github.com/gormes-EPIC/thermometer/assets/134316348/6e82e1ef-7cec-49ed-9b0f-6d6585a66f09)
 
 ## Add a Display
 
