@@ -4,6 +4,7 @@ import pygame
 import time
 from datetime import date
 import random
+import cv2 # install with sudo apt install python3-opencv
 
 # Initialize the DHT device for temperature and humidity reading.
 # DHT11 sensor on pin D4 and DHT22 sensor on pin D18.
@@ -18,6 +19,7 @@ pygame.display.set_caption('thermometer')
 screen_delay = 30
 viewt = time.time() + screen_delay
 currv = 0
+tempt = time.time() + 0.5
 
 # Starting temperature value.
 temp = 70.5
@@ -127,10 +129,31 @@ def digital_display(temp):
     message_rect.center = (512, 80)
     screen.blit(message_text, message_rect)
 
+# Function to display temperature with a Galaga theme.
+# E.Y. 2024
+cap = cv2.VideoCapture('galaga_79sec_480p.mp4')
+success, img = cap.read()
+shape = img.shape[1::-1]
+clock = pygame.time.Clock()
+def galaga_display(temp):
+    disp_font = pygame.font.Font('fonts/topaz.ttf', 50)
+    message_text = disp_font.render(str(temp) + " degrees Fahrenheit", True, (255, 255, 255))
+    message_rect = message_text.get_rect()
+    message_rect.center = (512, 550)
+    screen.blit(message_text, message_rect)
+    
+    success, img = cap.read()
+    if success:
+        img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+        screen.blit(pygame.image.frombuffer(img.tobytes(), shape, "RGB"), (100, 30))
+    
+
+    
 # Function to display temperature with an Ada Lovelace theme.
 def lovelace_display(temp):
     img = pygame.image.load('ada.png')
     screen.blit(img, (0,0))
+
 
     disp_font = pygame.font.SysFont('arial', 50, bold=True)
 
@@ -388,7 +411,7 @@ while True:
     # Check if it's time to switch the display view.
     if time.time() > viewt:
         viewt = time.time() + screen_delay
-        currv = random.randint(0,10)
+        currv = random.randint(0,11)
 
         # Reset screen background.
         background = (0, 0, 0) 
@@ -408,10 +431,12 @@ while True:
         raise error
 
     # Update temperature reading every 0.5 seconds.
-    time.sleep(0.5)
-    temp = round(temp, 1)
+    if time.time() > tempt:
+        tempt = time.time() + 1
+        temp = round(temp, 1)
     
-    # Display temperature using the selected view.
+    
+    # # Display temperature using the selected view.
     if currv == 0:
         classic_display(temp)
     elif currv == 1:
@@ -421,12 +446,14 @@ while True:
     elif currv == 3:
         digital_display(temp)
     elif currv == 4:
-        lovelace_display(temp)
+        galaga_display(temp)
     elif currv == 5:
-        medieval_display(temp)
+        lovelace_display(temp)
     elif currv == 6:
-        oregon_display(temp)
+        medieval_display(temp)
     elif currv == 7:
+        oregon_display(temp)
+    elif currv == 8:
         a = a + 10
         if a > 1024:
             a = 0
@@ -434,13 +461,14 @@ while True:
         if pacman > 4:
             pacman = 1
         pacman_display(temp, pacman, a)
-    elif currv == 8:
-        seventies_display(temp)
     elif currv == 9:
+        seventies_display(temp)
+    elif currv == 10:
         z -= 20
         starwars_display(temp, z)
-    elif currv == 10:
+    elif currv == 11:
         tetris_display(temp)
+    
 
     # Handle Pygame events.
     for event in pygame.event.get():
