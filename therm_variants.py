@@ -67,8 +67,8 @@ def classic_display(temp):
 
 # Function to display temperature in comic style.
 def comic_display(temp):
-    temp_font = pygame.font.SysFont('comicsans', 300)
-    disp_font = pygame.font.SysFont('comicsans', 90)
+    temp_font = pygame.font.Font('ComicSans.ttf', 300)
+    disp_font = pygame.font.Font('ComicSans.ttf', 90)
 
     # Set background color.
     background = (255, 255, 255) 
@@ -97,19 +97,19 @@ def console_display(temp):
     # Display current date.
     message_text = font.render(str(date.today()), True, (0,255,0))
     message_rect = message_text.get_rect()
-    message_rect.center = (740, 480)
+    message_rect.center = (720, 480)
     screen.blit(message_text, message_rect)
 
     # Display temperature value and unit.
     message_text = font.render(str(temp) + "° Fahrenheit", True, (0,255,0))
     message_rect = message_text.get_rect()
-    message_rect.center = (740, 550)
+    message_rect.center = (720, 550)
     screen.blit(message_text, message_rect)
 
 # Function to display temperature in digital style.
 def digital_display(temp):
-    temp_font = pygame.font.SysFont('yaheiconsolashybrid', 480)
-    disp_font = pygame.font.SysFont('yaheiconsolashybrid', 60)
+    temp_font = pygame.font.Font('ibm3270semicondensed.ttf', 480)
+    disp_font = pygame.font.Font('ibm3270semicondensed.ttf', 60)
 
     # Set background color.
     background = (0, 0, 0) 
@@ -191,7 +191,7 @@ def oregon_display(temp):
     pygame.draw.rect(screen, (0,255,0), pygame.Rect(100, 400, 824, 100))
     pygame.draw.rect(screen, (0,0,0), pygame.Rect(106, 406, 812, 88))
 
-    disp_font = pygame.font.SysFont('tlwgtypist', 40, bold=True)
+    disp_font = pygame.font.Font('courierprime.ttf', 40, bold=True)
     message_text = disp_font.render("It is " + str(temp) + " degrees Fahrenheit.", True, (0,255,00))
     message_rect = message_text.get_rect()
     message_rect.center = (512, 450)
@@ -199,8 +199,8 @@ def oregon_display(temp):
 
 # Function to display temperature with a Pacman theme.
 def pacman_display(temp, num, a):
-    temp_font = pygame.font.SysFont('amiga', 400)
-    disp_font = pygame.font.SysFont('amiga', 80)
+    temp_font = pygame.font.Font('topaz.ttf', 400)
+    disp_font = pygame.font.Font('topaz.ttf', 80)
 
     # Draw a black rectangle for Pacman animation.
     pygame.draw.rect(screen, (0,0,0), pygame.Rect(0, 525, 1024, 75))
@@ -245,17 +245,17 @@ def seventies_display(temp):
     # Display temperature value with a shadow effect.
     message_text = temp_font.render(str(temp), True, (37, 155, 219))
     message_rect = message_text.get_rect()
-    message_rect.center = (512, 250)
+    message_rect.center = (512, 350)
     screen.blit(message_text, message_rect)
 
     message_text = temp_font.render(str(temp), True, (37, 219, 86))
     message_rect = message_text.get_rect()
-    message_rect.center = (522, 250)
+    message_rect.center = (522, 350)
     screen.blit(message_text, message_rect)
 
     message_text = temp_font.render(str(temp), True, (219, 180, 37))
     message_rect = message_text.get_rect()
-    message_rect.center = (532, 250)
+    message_rect.center = (532, 350)
     screen.blit(message_text, message_rect)
 
     # Display "degrees fahrenheit" text.
@@ -266,12 +266,12 @@ def seventies_display(temp):
 
 # Function to display temperature with a Star Wars theme.
 def starwars_display(temp, z):
-    title_font = pygame.font.SysFont('ubuntucondensed', round(0.088*z))
-    title_font2 = pygame.font.SysFont('ubuntucondensed', round(0.1333*(z + 0.1333*z)))
-    disp_font = pygame.font.SysFont('roboto', round(0.08333*z), bold=True)
-    disp_font2 = pygame.font.SysFont('roboto', round(0.08333*(z + 0.2*z)), bold=True)
-    disp_font3 = pygame.font.SysFont('roboto', round(0.08333*(z + 0.3*z)), bold=True)
-    disp_font4 = pygame.font.SysFont('roboto', round(0.08333*(z + 0.4*z)), bold=True)
+    title_font = pygame.font.Font('ubuntucondensed.ttf', round(0.088*z))
+    title_font2 = pygame.font.Font('ubuntucondensed.ttf', round(0.1333*(z + 0.1333*z)))
+    disp_font = pygame.font.SysFont('piboto', round(0.08333*z), bold=True)
+    disp_font2 = pygame.font.SysFont('piboto', round(0.08333*(z + 0.2*z)), bold=True)
+    disp_font3 = pygame.font.SysFont('piboto', round(0.08333*(z + 0.3*z)), bold=True)
+    disp_font4 = pygame.font.SysFont('piboto', round(0.08333*(z + 0.4*z)), bold=True)
 
     # Set background color.
     background = (0, 0, 0) 
@@ -336,15 +336,14 @@ while True:
     time.sleep(0.5)
     temp = round(temp, 1)
 
-
-  
+    
     # Display temperature using the selected view.
     if currv == 0:
         classic_display(temp)
     elif currv == 1:
-        console_display(temp)
-    elif currv == 2:
         comic_display(temp)
+    elif currv == 2:
+        console_display(temp)
     elif currv == 3:
         digital_display(temp)
     elif currv == 4:
