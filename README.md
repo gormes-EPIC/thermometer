@@ -3,7 +3,7 @@
 This project displays the current temperature reading of  a DHT11 sensor connected to a Raspberry Pi in the EPIC Campus server room. It cycles through a random view using the `pygame` library every 30 seconds. 
 
 ## How to Run
-Download the directory and install `pygame` and Adafruit's [DHT library for CircuitPython](https://learn.adafruit.com/dht-humidity-sensing-on-raspberry-pi-with-gdocs-logging/python-setup). Run the programm with `python therm_variants.py`. 
+Download the directory and install `pygame`, `opencv`, and Adafruit's [DHT library for CircuitPython](https://learn.adafruit.com/dht-humidity-sensing-on-raspberry-pi-with-gdocs-logging/python-setup). Run the programm with `python therm_variants.py`. 
 
 ## Displays
 This is a list of all possible temperature display windows. 
@@ -19,6 +19,9 @@ This is a list of all possible temperature display windows.
 
 ### Digital Display
 ![digital](https://github.com/gormes-EPIC/thermometer/assets/134316348/5b1b3a18-8f41-451a-8aa1-98fe3309f9cd)
+
+### Galaga Display - E.Y. 2024
+![galaga](https://github.com/gormes-EPIC/thermometer/assets/134316348/ff984fe7-0cd5-4890-bf7f-ececb522be7e)
 
 ### Lovelace Display
 ![lovelace](https://github.com/gormes-EPIC/thermometer/assets/134316348/10513ec9-518c-4032-abbb-582bb3d588b2)
