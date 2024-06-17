@@ -137,8 +137,8 @@ clock = pygame.time.Clock()
 def galaga_display(temp):
     clock.tick(60)
     success, img = cap.read()
-    screen = pygame.display.set_mode(shape)
-    screen.blit(pygame.image.frombuffer(img.tobytes(), shape, "BGR"), (0, 0))
+    if success: 
+		screen.blit(pygame.image.frombuffer(img.tobytes(), shape, "BGR"), (0, 0))
     
 # Function to display temperature with an Ada Lovelace theme.
 def lovelace_display(temp):
@@ -424,7 +424,7 @@ while True:
     time.sleep(0.5)
     temp = round(temp, 1)
     
-    if currv == 0 and success:
+    if currv == 0:
         galaga_display(temp)
     else:
         classic_display(temp)
