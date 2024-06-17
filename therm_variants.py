@@ -307,6 +307,78 @@ def starwars_display(temp, z):
     message_rect = message_text.get_rect()
     message_rect.center = (512, z + 0.7*z)
     screen.blit(message_text, message_rect)
+# Function to display temperature with a Tetris theme.
+ColorPatters = [
+[(66, 66, 255),(99, 173, 255)],
+[(16, 148, 0),(140, 214, 0)],
+[(156, 24, 206),(239, 107, 255)],
+[(0, 88, 248),(91, 219, 87)],
+[(231, 0, 91),(88, 248, 152)],
+[(88, 248, 152),(107, 136, 255)],
+[(248, 56, 0),(127, 127, 127)],
+[(107, 71, 255),(171, 0, 35)],
+[(0, 88, 248),(248, 56, 0)],
+[(248, 56, 0),(255, 163, 71)],
+]
+NumberLayout = {
+    "0":[[1,0],[2,0], [0,1],[0,2],[0,3], [3,1],[3,2],[3,3], [1,4],[2,4]],
+    "1":[[0,4],[1,4],[2,4],[3,4], [1,3],[2,3],[1,2],[2,2],[0,1],[1,1],[2,1],[1,0],[2,0]],
+    "2":[[0,4],[1,4],[2,4],[3,4], [0,0],[1,0],[2,0], [3,1],[2,2],[1,3]],
+    "3":[[0,0],[1,0],[2,0], [1,2],[2,2], [0,4],[1,4],[2,4], [3,1],[3,3]],
+    "4":[[2,4],[2,3],[2,2],[2,1],[2,0], [3,2],[1,2],[0,2], [1,1]],
+    "5":[[0,0],[1,0],[2,0],[3,0],[0,0], [0,4],[1,4],[2,4], [3,3],[2,2],[2,2],[1,1], [0,1]],
+    "6":[[3,0],[2,0], [1,1],[2,1],[0,2],[0,3],[3,2],[3,3],[1,4],[2,4]],
+    "7":[[0,0],[1,0],[2,0],[3,0],[2,1],[1,2],[1,3],[1,4]],
+    "8":[[1,0],[2,0],[0,1],[3,1], [1,2],[2,2],[0,3],[3,3],[1,4],[2,4]],
+    "9":[[1,0],[2,0],[0,1],[3,1],[1,2],[2,2], [3,2],[2,3],[1,4]],
+    ".":[[1,4],[2,4],[1,3],[2,3]],
+    "°":[[1,0],[2,0],[1,1],[2,1]],
+}
+def Spawn_tet_tile(x,y,size = 32,pattern = ColorPatters[0],num = 0):
+    pygame.draw.rect(screen, (255,255,255), pygame.Rect(x, y, size,size))
+    img = pygame.transform.scale(pygame.image.load(f"{'Tetris_'+(num%2 == 0 and 'outline' or 'whole')}.png"), (size,size))
+    img.fill(pattern[num%2], None, pygame.BLEND_RGBA_MULT)
+    screen.blit(img, (x,y))
+
+def tetris_display(temp):
+    screen.fill((0, 0, 0))
+
+    # Background Rendering
+    ogw, h = pygame.display.get_surface().get_size()
+    w = h+h*(((64*100)/480)/100)
+    img = pygame.transform.scale(pygame.image.load('Tetris_bg.png'), (w, h))
+    screen.blit(img, ((ogw/2)-(w/2),0))
+
+    # Pattern to Temp range
+    if temp <= -6:
+        pattern = ColorPatters[0]
+    elif temp <= 8:
+        pattern = ColorPatters[1]
+    elif temp <= 22:
+        pattern = ColorPatters[2]
+    elif temp <= 36:
+        pattern = ColorPatters[3]
+    elif temp <= 50:
+        pattern = ColorPatters[4]
+    elif temp <= 64:
+        pattern = ColorPatters[5]
+    elif temp <= 78:
+        pattern = ColorPatters[6]
+    elif temp <= 92:
+        pattern = ColorPatters[7]
+    elif temp <= 106:
+        pattern = ColorPatters[8]
+    else:
+        pattern = ColorPatters[9]
+
+    count = 0
+    size = 20
+    left = (ogw/2)-((len([*str(temp),"°"])*size*3.75)/2)
+    for l in [*str(temp),"°"]:
+        for p in NumberLayout.get(l):
+            Spawn_tet_tile(left+(p[0]*size)+(count*size*4.25),(h/2)+(p[1]*size)-size*2,size,pattern,count)
+        count += 1
+
 
 # Main loop to update the display.
 while True:
