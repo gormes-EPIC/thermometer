@@ -67,8 +67,8 @@ def classic_display(temp):
 
 # Function to display temperature in comic style.
 def comic_display(temp):
-    temp_font = pygame.font.Font('ComicSans.ttf', 300)
-    disp_font = pygame.font.Font('ComicSans.ttf', 90)
+    temp_font = pygame.font.Font('fonts/comicsans.ttf', 300)
+    disp_font = pygame.font.Font('fonts/comicsans.ttf', 90)
 
     # Set background color.
     background = (255, 255, 255) 
@@ -108,8 +108,8 @@ def console_display(temp):
 
 # Function to display temperature in digital style.
 def digital_display(temp):
-    temp_font = pygame.font.Font('ibm3270semicondensed.ttf', 480)
-    disp_font = pygame.font.Font('ibm3270semicondensed.ttf', 60)
+    temp_font = pygame.font.Font('fonts/ibm3270semicondensed.ttf', 480)
+    disp_font = pygame.font.Font('fonts/ibm3270semicondensed.ttf', 60)
 
     # Set background color.
     background = (0, 0, 0) 
@@ -191,7 +191,7 @@ def oregon_display(temp):
     pygame.draw.rect(screen, (0,255,0), pygame.Rect(100, 400, 824, 100))
     pygame.draw.rect(screen, (0,0,0), pygame.Rect(106, 406, 812, 88))
 
-    disp_font = pygame.font.Font('courierprime.ttf', 40, bold=True)
+    disp_font = pygame.font.Font('fonts/courierprime.ttf', 40, bold=True)
     message_text = disp_font.render("It is " + str(temp) + " degrees Fahrenheit.", True, (0,255,00))
     message_rect = message_text.get_rect()
     message_rect.center = (512, 450)
@@ -199,8 +199,8 @@ def oregon_display(temp):
 
 # Function to display temperature with a Pacman theme.
 def pacman_display(temp, num, a):
-    temp_font = pygame.font.Font('topaz.ttf', 400)
-    disp_font = pygame.font.Font('topaz.ttf', 80)
+    temp_font = pygame.font.Font('fonts/topaz.ttf', 400)
+    disp_font = pygame.font.Font('fonts/topaz.ttf', 80)
 
     # Draw a black rectangle for Pacman animation.
     pygame.draw.rect(screen, (0,0,0), pygame.Rect(0, 525, 1024, 75))
@@ -266,8 +266,8 @@ def seventies_display(temp):
 
 # Function to display temperature with a Star Wars theme.
 def starwars_display(temp, z):
-    title_font = pygame.font.Font('ubuntucondensed.ttf', round(0.088*z))
-    title_font2 = pygame.font.Font('ubuntucondensed.ttf', round(0.1333*(z + 0.1333*z)))
+    title_font = pygame.font.Font('fonts/ubuntucondensed.ttf', round(0.088*z))
+    title_font2 = pygame.font.Font('fonts/ubuntucondensed.ttf', round(0.1333*(z + 0.1333*z)))
     disp_font = pygame.font.SysFont('piboto', round(0.08333*z), bold=True)
     disp_font2 = pygame.font.SysFont('piboto', round(0.08333*(z + 0.2*z)), bold=True)
     disp_font3 = pygame.font.SysFont('piboto', round(0.08333*(z + 0.3*z)), bold=True)
