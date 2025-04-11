@@ -40,10 +40,16 @@ def get_temp():
     """
     try:
         temperature_c = dhtDevice.temperature
+        temperature_c = float(temperature_c)
+        if temperature_c == None:
+            temperature_c = 70
         temp = temperature_c * (9 / 5) + 32
         return temp
+    except ValueError:
+        return 70
     except RuntimeError as error:
         time.sleep(0.5)
+        return 70
     except Exception as error:
         dhtDevice.exit()
         raise error
