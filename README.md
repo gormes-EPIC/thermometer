@@ -3,7 +3,7 @@
 This project displays the current temperature reading of  a DHT11 sensor connected to a Raspberry Pi in the EPIC Campus server room. It cycles through a random view using the `pygame` library every 30 seconds. 
 
 ## How to Run
-Download the directory and install `pygame`, `opencv`, and Adafruit's [DHT library for CircuitPython](https://learn.adafruit.com/dht-humidity-sensing-on-raspberry-pi-with-gdocs-logging/python-setup). Run the programm with `python therm_variants.py`. 
+Download the directory and install `pygame`, `opencv`, and Adafruit's [DHT library for CircuitPython](https://learn.adafruit.com/dht-humidity-sensing-on-raspberry-pi-with-gdocs-logging/python-setup). Run the programm with `python controller.py`. 
 
 ## Displays
 This is a list of all possible temperature display windows. 

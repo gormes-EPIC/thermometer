@@ -1,38 +1,11 @@
-import board
-import adafruit_dht
 import pygame
-import time
 from datetime import date
-import random
-import cv2 # install with sudo apt install python3-opencv
+import cv2
 
-# Initialize the DHT device for temperature and humidity reading.
-# DHT11 sensor on pin D4 and DHT22 sensor on pin D18.
-dhtDevice = adafruit_dht.DHT11(board.D4)
-
-# Set up the Pygame window with a resolution of 1024x600 pixels.
-pygame.init()
-screen = pygame.display.set_mode((1024, 600), 0, 32)
-pygame.display.set_caption('thermometer')
-
-# Initialize variables for screen display timing and current view.
-screen_delay = 30
-viewt = time.time() + screen_delay
-currv = 0
-tempt = time.time() + 0.5
-
-# Starting temperature value.
-temp = 70.5
-
-# Variables for Pacman animation.
-pacman = 0
-a = 0 
-
-# Variable for Star Wars animation.
-z = 600
-
-# Function to display temperature in classic style.
-def classic_display(temp):
+def classic_display(temp, screen):
+    """
+    Function to display temperature in classic style.
+    """
     disp_font = pygame.font.Font('freesansbold.ttf', 60)
     temp_font = pygame.font.Font('freesansbold.ttf', 250)
 
@@ -67,8 +40,11 @@ def classic_display(temp):
     message_rect.center = (512, 300)
     screen.blit(message_text, message_rect)
 
-# Function to display temperature in comic style.
-def comic_display(temp):
+
+def comic_display(temp, screen):
+    """
+    Function to display temperature with Comic Sans
+    """
     temp_font = pygame.font.Font('fonts/comicsans.ttf', 300)
     disp_font = pygame.font.Font('fonts/comicsans.ttf', 90)
 
@@ -88,8 +64,11 @@ def comic_display(temp):
     message_rect.center = (880, 380)
     screen.blit(message_text, message_rect)
 
-# Function to display temperature in console style.
-def console_display(temp):
+
+def console_display(temp, screen):
+    """
+    Function to display temperature in console style.
+    """
     font = pygame.font.SysFont('dejavusansmono', 60)
 
     # Set background color.
@@ -108,8 +87,11 @@ def console_display(temp):
     message_rect.center = (720, 550)
     screen.blit(message_text, message_rect)
 
-# Function to display temperature in digital style.
-def digital_display(temp):
+
+def digital_display(temp, screen):
+    """
+    Function to display temperature in digital style.
+    """
     temp_font = pygame.font.Font('fonts/ibm3270semicondensed.ttf', 480)
     disp_font = pygame.font.Font('fonts/ibm3270semicondensed.ttf', 60)
 
@@ -129,13 +111,17 @@ def digital_display(temp):
     message_rect.center = (512, 80)
     screen.blit(message_text, message_rect)
 
-# Function to display temperature with a Galaga theme.
-# E.Y. 2024
-cap = cv2.VideoCapture('galaga_79sec_480p.mp4')
+
+
+cap = cv2.VideoCapture('assets/galaga_79sec_480p.mp4')
 success, img = cap.read()
 shape = img.shape[1::-1]
 clock = pygame.time.Clock()
-def galaga_display(temp):
+def galaga_display(temp, screen):
+    """
+    Function to display temperature with a Galaga theme.
+    E.Y. 2024
+    """
     disp_font = pygame.font.Font('fonts/topaz.ttf', 50)
     message_text = disp_font.render(str(temp) + " degrees Fahrenheit", True, (255, 255, 255))
     message_rect = message_text.get_rect()
@@ -148,10 +134,11 @@ def galaga_display(temp):
         screen.blit(pygame.image.frombuffer(img.tobytes(), shape, "RGB"), (100, 30))
     
 
-    
-# Function to display temperature with an Ada Lovelace theme.
-def lovelace_display(temp):
-    img = pygame.image.load('ada.png')
+def lovelace_display(temp, screen):
+    """
+    Function to display temperature with an Ada Lovelace theme.
+    """
+    img = pygame.image.load('assets/ada.png')
     screen.blit(img, (0,0))
 
 
@@ -178,8 +165,11 @@ def lovelace_display(temp):
     message_rect.center = (275, 415)
     screen.blit(message_text, message_rect)
 
-# Function to display temperature in medieval style.
-def medieval_display(temp):
+
+def medieval_display(temp, screen):
+    """
+    Function to display temperature with a medieval style.
+    """
     temp_font = pygame.font.SysFont('z003', 480)
     disp_font = pygame.font.SysFont('z003', 60)
 
@@ -205,23 +195,29 @@ def medieval_display(temp):
     message_rect.center = (512, 550)
     screen.blit(message_text, message_rect)
 
-# Function to display temperature with an Oregon Trail theme.
-def oregon_display(temp):
-    img = pygame.image.load('oregontrail.png')
+def oregon_display(temp, screen):
+    """
+    Function to display temperature with an Oregon Trail theme.
+    """
+    img = pygame.image.load('assets/oregontrail.png')
     screen.blit(img, (125,100))
 
     # Draw a green rectangle for text background.
     pygame.draw.rect(screen, (0,255,0), pygame.Rect(100, 400, 824, 100))
     pygame.draw.rect(screen, (0,0,0), pygame.Rect(106, 406, 812, 88))
 
-    disp_font = pygame.font.Font('fonts/courierprime.ttf', 40, bold=True)
+    disp_font = pygame.font.Font('fonts/courierprime.ttf', 40)
     message_text = disp_font.render("It is " + str(temp) + " degrees Fahrenheit.", True, (0,255,00))
     message_rect = message_text.get_rect()
     message_rect.center = (512, 450)
     screen.blit(message_text, message_rect)
 
-# Function to display temperature with a Pacman theme.
-def pacman_display(temp, num, a):
+
+def pacman_display(temp, num, a, screen):
+
+    """
+    Function to display temperature with a Pacman theme.
+    """
     temp_font = pygame.font.Font('fonts/topaz.ttf', 400)
     disp_font = pygame.font.Font('fonts/topaz.ttf', 80)
 
@@ -237,11 +233,11 @@ def pacman_display(temp, num, a):
 
     # Load Pacman image based on animation frame.
     if num == 1:
-        img = pygame.image.load('pacman1.png')
+        img = pygame.image.load('assets/pacman1.png')
     elif num == 3:
-        img = pygame.image.load('pacman3.png')
+        img = pygame.image.load('assets/pacman3.png')
     else:
-        img = pygame.image.load('pacman2.png')
+        img = pygame.image.load('assets/pacman2.png')
     screen.blit(img, (a,550))
 
     # Display temperature value.
@@ -256,8 +252,11 @@ def pacman_display(temp, num, a):
     message_rect.center = (512, 490)
     screen.blit(message_text, message_rect)
 
-# Function to display temperature in seventies style.
-def seventies_display(temp):
+
+def seventies_display(temp, screen):
+    """
+    Function to display temperature in 70's font.
+    """
     temp_font = pygame.font.SysFont('nimbussansnarrow', 480)
     disp_font = pygame.font.SysFont('nimbussansnarrow', 60)
 
@@ -287,8 +286,13 @@ def seventies_display(temp):
     message_rect.center = (512, 530)
     screen.blit(message_text, message_rect)
 
-# Function to display temperature with a Star Wars theme.
-def starwars_display(temp, z):
+
+
+
+def starwars_display(temp, z, screen):
+    """
+    Function to display temperature with a Star Wars theme.
+    """
     title_font = pygame.font.Font('fonts/ubuntucondensed.ttf', round(0.088*z))
     title_font2 = pygame.font.Font('fonts/ubuntucondensed.ttf', round(0.1333*(z + 0.1333*z)))
     disp_font = pygame.font.SysFont('piboto', round(0.08333*z), bold=True)
@@ -330,7 +334,9 @@ def starwars_display(temp, z):
     message_rect = message_text.get_rect()
     message_rect.center = (512, z + 0.7*z)
     screen.blit(message_text, message_rect)
-    
+
+
+
 # Function to display temperature with a Tetris theme.
 # - J.P. 2024
 ColorPatters = [
@@ -359,20 +365,20 @@ NumberLayout = {
     ".":[[1,4],[2,4],[1,3],[2,3]],
     "°":[[1,0],[2,0],[1,1],[2,1]],
 }
-def Spawn_tet_tile(x,y,size = 32,pattern = ColorPatters[0],num = 0):
+def Spawn_tet_tile(x,y,screen,size = 32,pattern = ColorPatters[0],num = 0):
     pygame.draw.rect(screen, (255,255,255), pygame.Rect(x, y, size,size))
-    img = pygame.transform.scale(pygame.image.load(f"{'Tetris_'+(num%2 == 0 and 'outline' or 'whole')}.png"), (size,size))
+    img = pygame.transform.scale(pygame.image.load(f"{'assets/Tetris_'+(num%2 == 0 and 'outline' or 'whole')}.png"), (size,size))
     img.fill(pattern[num%2], None, pygame.BLEND_RGBA_MULT)
     screen.blit(img, (x,y))
 
-def tetris_display(temp):
+def tetris_display(temp, screen):
     screen.fill((0, 0, 0))
 
     # Background Rendering
     ogw, h = pygame.display.get_surface().get_size()
     h = 600
     w = 1024
-    img = pygame.transform.scale(pygame.image.load('Tetris_bg.png'), (w, h))
+    img = pygame.transform.scale(pygame.image.load('assets/Tetris_bg.png'), (w, h))
     screen.blit(img, ((ogw/2)-(w/2),0))
 
     # Pattern to Temp range
@@ -402,78 +408,5 @@ def tetris_display(temp):
     left = (ogw/2)-((len([*str(temp),"°"])*size*3.75)/2)
     for l in [*str(temp),"°"]:
         for p in NumberLayout.get(l):
-            Spawn_tet_tile(left+(p[0]*size)+(count*size*4.25),(h/2)+(p[1]*size)-size*2,size,pattern,count)
+            Spawn_tet_tile(left+(p[0]*size)+(count*size*4.25),(h/2)+(p[1]*size)-size*2,screen, size,pattern,count)
         count += 1
-
-
-# Main loop to update the display.
-while True:
-    # Check if it's time to switch the display view.
-    if time.time() > viewt:
-        viewt = time.time() + screen_delay
-        currv = random.randint(0,11)
-
-        # Reset screen background.
-        background = (0, 0, 0) 
-        screen.fill(background)
-        
-        z = 600
-    
-    # Attempt to read temperature from DHT device.
-    try:
-        temperature_c = dhtDevice.temperature
-        temp = temperature_c * (9 / 5) + 32
-    except RuntimeError as error:
-        time.sleep(0.5)
-        continue
-    except Exception as error:
-        dhtDevice.exit()
-        raise error
-
-    # Update temperature reading every 0.5 seconds.
-    if time.time() > tempt:
-        tempt = time.time() + 1
-        temp = round(temp, 1)
-    
-    
-    # # Display temperature using the selected view.
-    if currv == 0:
-        classic_display(temp)
-    elif currv == 1:
-        comic_display(temp)
-    elif currv == 2:
-        console_display(temp)
-    elif currv == 3:
-        digital_display(temp)
-    elif currv == 4:
-        galaga_display(temp)
-    elif currv == 5:
-        lovelace_display(temp)
-    elif currv == 6:
-        medieval_display(temp)
-    elif currv == 7:
-        oregon_display(temp)
-    elif currv == 8:
-        a = a + 10
-        if a > 1024:
-            a = 0
-        pacman = pacman + 1
-        if pacman > 4:
-            pacman = 1
-        pacman_display(temp, pacman, a)
-    elif currv == 9:
-        seventies_display(temp)
-    elif currv == 10:
-        z -= 20
-        starwars_display(temp, z)
-    elif currv == 11:
-        tetris_display(temp)
-    
-
-    # Handle Pygame events.
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            pygame.quit()
-
-    # Update the display.
-    pygame.display.update()
