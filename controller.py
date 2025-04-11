@@ -67,7 +67,8 @@ while True:
         temp = 70.5
 
     temp += 0.25
-
+    temp = round(temp, 1)
+    
     # Update temperature reading every 0.5 seconds.
     if time.time() > tempt:
         tempt = time.time() + 1

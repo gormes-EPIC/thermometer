@@ -59,8 +59,14 @@ while True:
         z = 600
 
     #temp = get_temp()
-    temp = 70.5
+    temp = 70.0000000005
 
+    if temp == None:
+        temp = 70.5
+
+    temp += 0.25
+    temp = round(temp, 1)
+    
     # Update temperature reading every 0.5 seconds.
     if time.time() > tempt:
         tempt = time.time() + 1
