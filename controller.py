@@ -6,8 +6,8 @@ import board
 import adafruit_dht
 
 # Initialize the DHT device for temperature and humidity reading.
-# DHT11 sensor on pin D4 and DHT22 sensor on pin D18.
-dhtDevice = adafruit_dht.DHT11(board.D4)
+# DHT11 sensor on pin D4 and DHT22 sensor on pin D4.
+dhtDevice = adafruit_dht.DHT11(board.D4, use_pulseio=False)
 
 # Set up the Pygame window with a resolution of 1024x600 pixels.
 pygame.init()
@@ -68,7 +68,7 @@ while True:
 
     temp += 0.25
     temp = round(temp, 1)
-    
+
     # Update temperature reading every 0.5 seconds.
     if time.time() > tempt:
         tempt = time.time() + 1
