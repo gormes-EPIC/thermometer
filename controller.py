@@ -46,10 +46,10 @@ def get_temp():
         temp = temperature_c * (9 / 5) + 32
         return temp
     except ValueError:
-        return 70
+        return 70.5
     except RuntimeError as error:
         time.sleep(0.5)
-        return 70
+        return 70.5
     except Exception as error:
         dhtDevice.exit()
         raise error
@@ -72,7 +72,6 @@ while True:
     if temp == None:
         temp = 70.5
 
-    temp += 0.25
     temp = round(temp, 1)
 
     # Update temperature reading every 0.5 seconds.
