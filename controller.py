@@ -63,6 +63,12 @@ while True:
 
     temp = get_temp()
 
+    if temp == None:
+        temp = 70.5
+
+    if temp % 1 == 0:
+        temp += 0.1
+
     # Update temperature reading every 0.5 seconds.
     if time.time() > tempt:
         tempt = time.time() + 1
