@@ -45,7 +45,7 @@ def get_temp():
             temperature_c = 70
         temp = temperature_c * (9 / 5) + 32
         return temp
-    except ValueError:
+    except TypeError:
         return 70.5
     except RuntimeError as error:
         time.sleep(0.5)
