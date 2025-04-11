@@ -11,7 +11,9 @@ import views
 
 # Set up the Pygame window with a resolution of 1024x600 pixels.
 pygame.init()
-screen = pygame.display.set_mode((1024, 600), 0, 32)
+info = pygame.display.Info()
+screen_width, screen_height = info.current_w, info.current_h
+screen = pygame.display.set_mode((screen_width, screen_height), pygame.FULLSCREEN)
 pygame.display.set_caption('thermometer')
 
 # Initialize variables for screen display timing and current view.
