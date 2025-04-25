@@ -42,7 +42,7 @@ while True:
         
         z = 600
 
-    temp = model.get_temp()
+    temp = model.get_temp_API()
     if temp == None:
         temp = 70.5
     temp = round(temp, 1)    
