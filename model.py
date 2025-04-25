@@ -6,7 +6,7 @@ import requests
 # import adafruit_dht
 # dhtDevice = adafruit_dht.DHT11(board.D4, use_pulseio=False)
 
-BASE_URL = "http://192.168.x.x:5000"  # replace with your machine's IP
+BASE_URL = "http://192.168.110.129:5000"  # replace with your machine's IP
 
 # def get_temp():
 #     """
