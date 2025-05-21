@@ -34,7 +34,7 @@ while True:
     # Check if it's time to switch the display view.
     if time.time() > viewt:
         viewt = time.time() + screen_delay
-        currv = random.randint(0,11)
+        currv = random.randint(0,1)
 
         # Reset screen background.
         background = (0, 0, 0) 
