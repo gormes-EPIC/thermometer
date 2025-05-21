@@ -8,7 +8,7 @@ PYTHON_FILE="controller.py"
 cd "$REPO_DIR" || exit
 
 # Pull latest changes
-git pull origin main 
+/usr/bin/git pull origin main 
 
 # Run the Python file
 python3 "$PYTHON_FILE"
