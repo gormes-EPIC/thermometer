@@ -133,7 +133,6 @@ def galaga_display(temp, screen):
         img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
         screen.blit(pygame.image.frombuffer(img.tobytes(), shape, "RGB"), (100, 30))
     
-
 def lovelace_display(temp, screen):
     """
     Function to display temperature with an Ada Lovelace theme.
@@ -218,6 +217,10 @@ def pacman_display(temp, num, a, screen):
     """
     Function to display temperature with a Pacman theme.
     """
+    # Fill background
+    background = (0, 0, 0) 
+    screen.fill(background)
+
     temp_font = pygame.font.Font('fonts/topaz.ttf', 400)
     disp_font = pygame.font.Font('fonts/topaz.ttf', 80)
 
@@ -250,6 +253,31 @@ def pacman_display(temp, num, a, screen):
     message_text = disp_font.render("degrees", True, (0, 0, 219))
     message_rect = message_text.get_rect()
     message_rect.center = (512, 490)
+    screen.blit(message_text, message_rect)
+
+def pokemon_display(temp, screen):
+    """
+    Function to display temperature with a Pokemon theme.
+    """
+    # Fill background
+    background = (255, 255, 255) 
+    screen.fill(background)
+
+    # Load image
+    img = pygame.image.load('assets/pokemon.jpg')
+    screen.blit(img, (212,0))
+
+    disp_font = pygame.font.SysFont('liberationmono', 30, bold=True)
+
+    # Display thematic text.
+    message_text = disp_font.render("A wild "+ str(temp) + " degree server" , True, (0,0,0))
+    message_rect = message_text.get_rect()
+    message_rect.center = (475, 445)
+    screen.blit(message_text, message_rect)
+
+    message_text = disp_font.render("room appeared!", True, (0,0,0))
+    message_rect = message_text.get_rect()
+    message_rect.center = (375, 480)
     screen.blit(message_text, message_rect)
 
 
