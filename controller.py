@@ -51,7 +51,6 @@ while True:
         
     temp = round(temp, 1)
     time.sleep(0.2)
-    print(temp)
     
     #Display temperature using the selected view.
     if currv == 0:
