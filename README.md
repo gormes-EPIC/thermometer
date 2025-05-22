@@ -35,6 +35,9 @@ This is a list of all possible temperature display windows.
 ### Pacman Display
 ![pacman](https://github.com/gormes-EPIC/thermometer/assets/134316348/fcbf15d4-d685-422b-bba7-86d95e6a056a)
 
+### Pokemon Display
+![pokemon_view](https://github.com/user-attachments/assets/4586fceb-b4e4-4e00-adcd-24eac1a0c754)
+
 ### Seventies Display
 ![seventies](https://github.com/gormes-EPIC/thermometer/assets/134316348/97528186-27d4-4790-8d4f-97fc9f7e99f1)
 
