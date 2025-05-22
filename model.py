@@ -34,7 +34,7 @@ def get_temp_test():
     """
     Function to get the temperature from a sensor
     """
-    return 70.5
+    return 70.55
 
 def get_temp_API():
     """
@@ -43,7 +43,7 @@ def get_temp_API():
     response = requests.get(f"{BASE_URL}/items")
     print("GET /items:", response.json())
     dic = response.json()
-    return int(dic[0]["temp"])
+    return float(dic[0]["temp"])
 
 
 # # GET all items
