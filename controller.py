@@ -49,7 +49,8 @@ while True:
     if temp == None:
         temp = 70.55
         
-    temp = round(temp, 2)
+    temp = round(temp, 1)
+    time.sleep(0.2)
     print(temp)
     
     #Display temperature using the selected view.
