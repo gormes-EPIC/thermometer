@@ -47,12 +47,13 @@ while True:
         temp = 70.5
     if temp == None:
         temp = 70.5
-    temp = round(temp, 1)    
+        
+    temp = round(temp, 2)    
 
     # Update temperature reading every 0.5 seconds.
     if time.time() > tempt:
         tempt = time.time() + 1
-        temp = round(temp, 1)
+        temp = round(temp, 2)
     
     #Display temperature using the selected view.
     if currv == 0:
