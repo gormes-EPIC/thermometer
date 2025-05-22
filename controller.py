@@ -26,7 +26,7 @@ z = 600
 
 
 # Starting temperature value.
-temp = 70.5
+temp = 70.55
 
 # Main loop to update the display.
 while True:
@@ -44,17 +44,11 @@ while True:
     try: 
         temp = model.get_temp_API()
     except OSError:
-        temp = 70.5
+        temp = 70.55
     if temp == None:
-        temp = 70.5
+        temp = 70.55
         
-    temp = round(temp, 2)    
-
-    # Update temperature reading every 0.5 seconds.
-    # if time.time() > tempt:
-    #     tempt = time.time() + 1
-    #     temp = round(temp, 2)
-    
+    temp = round(temp, 2)
     print(temp)
     
     #Display temperature using the selected view.
