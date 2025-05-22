@@ -54,6 +54,7 @@ while True:
     if time.time() > tempt:
         tempt = time.time() + 1
         temp = round(temp, 2)
+    print(temp)
     
     #Display temperature using the selected view.
     if currv == 0:
