@@ -36,6 +36,10 @@ def get_temp_test():
     """
     return 70.55
 
+def send_email(temp):
+    x = requests.post("https://epiccs.daiki-bot.xyz/alert/:"+str(temp)+"/:"+str(80))
+    
+
 def get_temp_API():
     """
     Function to get the temperature from a sensor API
@@ -43,6 +47,10 @@ def get_temp_API():
     response = requests.get(f"{BASE_URL}/items")
     print("GET /items:", response.json())
     dic = response.json()
+
+    if float(dic[0]["temp"]) > 70:
+        send_email(float(dic[0]["temp"]))
+        
     return float(dic[0]["temp"])
 
 
