@@ -43,7 +43,6 @@ while True:
         z = 600
     try: 
         temp = model.get_temp_API()
-        print("from model: " + str(temp))
     except OSError:
         temp = 70.55
     if temp == None:
