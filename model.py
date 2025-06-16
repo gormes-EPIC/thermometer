@@ -40,19 +40,20 @@ def send_email(temp):
     x = requests.post("https://epiccs.daiki-bot.xyz/alert/:"+str(temp)+"/:"+str(80))
     
 
-def get_temp_API():
+def get_temp_API(last_email):
     """
     Function to get the temperature from a sensor API
     """
     response = requests.get(f"{BASE_URL}/items")
     print("GET /items:", response.json())
     dic = response.json()
+    emailed = False
 
     if float(dic[0]["temp"]) > 71:
-        if time.time() > (controller.last_email + 5400000):
+        if time.time() > (last_email + 5400000):
             send_email(float(dic[0]["temp"]))
-            controller.last_email  = time.time()
-    return float(dic[0]["temp"])
+            emailed = True
+    return (float(dic[0]["temp"]), emailed)
 
 
 # # GET all items
