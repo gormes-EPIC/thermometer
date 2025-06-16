@@ -47,11 +47,15 @@ while True:
         
         z = 600
     try: 
-        temp = model.get_temp_API()
+        temp, email = model.get_temp_API()
+        if email == True:
+            last_email = time.time()
     except OSError:
         temp = 70.55
     if temp == None:
         temp = 70.55
+
+    
         
     temp = round(temp, 1)
     
