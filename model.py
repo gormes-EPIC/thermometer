@@ -7,7 +7,7 @@ import requests
 # dhtDevice = adafruit_dht.DHT11(board.D4, use_pulseio=False)
 
 BASE_URL = "http://192.168.110.129:5000"  # replace with your machine's IP
-
+last_email = time.time()
 # def get_temp():
 #     """
 #     Function to get the temperature from a sensor
@@ -49,8 +49,9 @@ def get_temp_API():
     dic = response.json()
 
     if float(dic[0]["temp"]) > 80:
-        send_email(float(dic[0]["temp"]))
-        
+        if time.time() > (last_email + 5400000):
+            send_email(float(dic[0]["temp"]))
+            last_email  = time.time()
     return float(dic[0]["temp"])
 
 
