@@ -36,8 +36,11 @@ def get_temp_test():
     """
     return 70.55
 
-def send_email(temp):
-    x = requests.post("https://epiccs.daiki-bot.xyz/alert/:"+str(temp)+"/:"+str(80))
+def send_email(temp, type):
+    if type == 1:
+        x = requests.post("https://epiccs.daiki-bot.xyz/alert/:"+str(temp)+"/:"+str(80))
+    else if type == 2:
+        x = requests.post("https://epiccs.daiki-bot.xyz/warning/:"+str(temp)+"/:"+str(77))
     
 
 def get_temp_API(last_email):
@@ -51,9 +54,13 @@ def get_temp_API(last_email):
 
     if float(dic[0]["temp"]) > 80:
         if time.time() > (last_email + 5400000):
-            send_email(float(dic[0]["temp"]))
+            send_email(float(dic[0]["temp"]), 1)
             emailed = True
-            print("emailed!")
+    else if float(dic[0]["temp"]) > 70:
+        if time.time() > (last_email + 5400000):
+            send_email(float(dic[0]["temp"]), 2)
+            emailed = True
+            
     return (float(dic[0]["temp"]), emailed)
 
 
