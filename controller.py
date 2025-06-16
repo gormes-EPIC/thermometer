@@ -47,7 +47,7 @@ while True:
         
         z = 600
     try: 
-        temp, email = model.get_temp_API()
+        temp, email = model.get_temp_API(last_email)
         if email == True:
             last_email = time.time()
     except OSError:
