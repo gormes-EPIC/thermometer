@@ -48,7 +48,7 @@ def get_temp_API():
     print("GET /items:", response.json())
     dic = response.json()
 
-    if float(dic[0]["temp"]) > 75:
+    if float(dic[0]["temp"]) > 71:
         if time.time() > (last_email + 5400000):
             send_email(float(dic[0]["temp"]))
             last_email  = time.time()
