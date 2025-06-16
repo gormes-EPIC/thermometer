@@ -49,7 +49,7 @@ def get_temp_API(last_email):
     dic = response.json()
     emailed = False
 
-    if float(dic[0]["temp"]) > 71:
+    if float(dic[0]["temp"]) > 80:
         if time.time() > (last_email + 5400000):
             send_email(float(dic[0]["temp"]))
             emailed = True
