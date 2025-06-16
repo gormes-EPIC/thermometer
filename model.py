@@ -53,6 +53,7 @@ def get_temp_API(last_email):
         if time.time() > (last_email + 5400000):
             send_email(float(dic[0]["temp"]))
             emailed = True
+            print("emailed!")
     return (float(dic[0]["temp"]), emailed)
 
 
