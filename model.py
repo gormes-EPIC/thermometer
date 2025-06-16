@@ -56,7 +56,7 @@ def get_temp_API(last_email):
         if time.time() > (last_email + 5400000):
             send_email(float(dic[0]["temp"]), 1)
             emailed = True
-    elif float(dic[0]["temp"]) > 70:
+    elif float(dic[0]["temp"]) > 77:
         if time.time() > (last_email + 5400000):
             send_email(float(dic[0]["temp"]), 2)
             emailed = True
