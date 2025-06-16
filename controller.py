@@ -19,6 +19,9 @@ viewt = time.time() + screen_delay
 currv = 0
 tempt = time.time() + 0.5
 
+#
+last_email = time.time()
+
 # Variables for Pacman animation.
 pacman = 0
 a = 0 
