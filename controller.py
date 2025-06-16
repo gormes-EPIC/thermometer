@@ -20,7 +20,7 @@ currv = 0
 tempt = time.time() + 0.5
 
 #
-last_email = time.time()
+last_email = 0
 
 # Variables for Pacman animation.
 pacman = 0
