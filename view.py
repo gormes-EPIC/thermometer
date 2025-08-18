@@ -113,25 +113,25 @@ def digital_display(temp, screen):
 
 
 
-cap = cv2.VideoCapture('assets/galaga_79sec_480p.mp4')
-success, img = cap.read()
-shape = img.shape[1::-1]
-clock = pygame.time.Clock()
-def galaga_display(temp, screen):
-    """
-    Function to display temperature with a Galaga theme.
-    E.Y. 2024
-    """
-    disp_font = pygame.font.Font('fonts/topaz.ttf', 50)
-    message_text = disp_font.render(str(temp) + " degrees Fahrenheit", True, (255, 255, 255))
-    message_rect = message_text.get_rect()
-    message_rect.center = (512, 550)
-    screen.blit(message_text, message_rect)
+# cap = cv2.VideoCapture('./assets/galaga_79sec_480p.mp4')
+# success, img = cap.read()
+# shape = img.shape[1::-1]
+# clock = pygame.time.Clock()
+# def galaga_display(temp, screen):
+#     """
+#     Function to display temperature with a Galaga theme.
+#     E.Y. 2024
+#     """
+#     disp_font = pygame.font.Font('fonts/topaz.ttf', 50)
+#     message_text = disp_font.render(str(temp) + " degrees Fahrenheit", True, (255, 255, 255))
+#     message_rect = message_text.get_rect()
+#     message_rect.center = (512, 550)
+#     screen.blit(message_text, message_rect)
     
-    success, img = cap.read()
-    if success:
-        img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
-        screen.blit(pygame.image.frombuffer(img.tobytes(), shape, "RGB"), (100, 30))
+#     success, img = cap.read()
+#     if success:
+#         img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+#         screen.blit(pygame.image.frombuffer(img.tobytes(), shape, "RGB"), (100, 30))
     
 def lovelace_display(temp, screen):
     """
@@ -438,3 +438,11 @@ def tetris_display(temp, screen):
         for p in NumberLayout.get(l):
             Spawn_tet_tile(left+(p[0]*size)+(count*size*4.25),(h/2)+(p[1]*size)-size*2,screen, size,pattern,count)
         count += 1
+
+def minecraft_display(temp, screen):
+    img = pygame.image.load('/home/cadenbents/Documents/ThermometerScreen/thermometer/assets/newMinecraftwallpaper2.jpg')
+    screen.blit(img,(0,0))
+
+    disp_font = pygame.font.Font('/home/cadenbents/Documents/ThermometerScreen/thermometer/fonts/MinecraftTen-VGORe.ttf', 40)
+    display_text = disp_font.render(f"{str(temp)}", True, (255,255,255))
+    screen.blit(display_text)
