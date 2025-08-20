@@ -441,7 +441,7 @@ def tetris_display(temp, screen):
         count += 1
 
 def minecraft_display(temp, screen):
-    img = pygame.image.load('/home/cadenbents/Documents/ThermometerScreen/thermometer/assets/newMinecraftwallpaper2.jpg')
+    img = pygame.image.load('assets/newMinecraftwallpaper2.jpg')
     screen.blit(img,(0,0))
 
 
@@ -456,10 +456,10 @@ def minecraft_display(temp, screen):
     
 
 
-    disp_font2 = pygame.font.Font('/home/cadenbents/Documents/ThermometerScreen/thermometer/fonts/MinecraftTen-VGORe.ttf', 95)
+    disp_font2 = pygame.font.Font('fonts/MinecraftTen-VGORe.ttf', 95)
     display_text2 = disp_font2.render(f"{str(temp)}°", True, (255,255,255))
     screen.blit(display_text2, (760, 15))
 
-    disp_font1 = pygame.font.Font('/home/cadenbents/Documents/ThermometerScreen/thermometer/fonts/MinecraftTen-VGORe.ttf', 45)
+    disp_font1 = pygame.font.Font('fonts/MinecraftTen-VGORe.ttf', 45)
     display_text1 = disp_font1.render(f"{date_time}", True, (255,255,255))
     screen.blit(display_text1, (0, 15))
