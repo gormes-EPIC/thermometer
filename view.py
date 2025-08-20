@@ -1,5 +1,6 @@
 import pygame
-from datetime import date
+from datetime import date, time, datetime
+import pytz
 import cv2
 
 def classic_display(temp, screen):
@@ -443,6 +444,22 @@ def minecraft_display(temp, screen):
     img = pygame.image.load('/home/cadenbents/Documents/ThermometerScreen/thermometer/assets/newMinecraftwallpaper2.jpg')
     screen.blit(img,(0,0))
 
-    disp_font = pygame.font.Font('/home/cadenbents/Documents/ThermometerScreen/thermometer/fonts/MinecraftTen-VGORe.ttf', 40)
-    display_text = disp_font.render(f"{str(temp)}", True, (255,255,255))
-    screen.blit(display_text)
+
+
+
+    dt_object = datetime.now()
+    output_format = "%I:%M:%S %p"
+    regular_time_str = dt_object.strftime(output_format)
+
+    date_time = f"{date.today()}  {regular_time_str}"
+
+    
+
+
+    disp_font2 = pygame.font.Font('/home/cadenbents/Documents/ThermometerScreen/thermometer/fonts/MinecraftTen-VGORe.ttf', 95)
+    display_text2 = disp_font2.render(f"{str(temp)}°", True, (255,255,255))
+    screen.blit(display_text2, (760, 15))
+
+    disp_font1 = pygame.font.Font('/home/cadenbents/Documents/ThermometerScreen/thermometer/fonts/MinecraftTen-VGORe.ttf', 45)
+    display_text1 = disp_font1.render(f"{date_time}", True, (255,255,255))
+    screen.blit(display_text1, (0, 15))
