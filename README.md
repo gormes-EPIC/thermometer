@@ -47,6 +47,9 @@ This is a list of all possible temperature display windows.
 ### Tetris Display - J.P. 2024
 ![tetris](https://github.com/gormes-EPIC/thermometer/assets/134316348/f63df171-59a2-40c8-9422-d3767e209f4b)
 
+### Minecraft Display -C.P.B 2025
+![minecraft]()
+
 ## Add a Display
 
 Want to add a display? Create a Python function using pygame for a 1024 by 600 pixel screen. Your function should accept at least one argument `temp`, which is the current temperature in the room. Once your design is complete, create a new branch on the project and upload your code and assets for review!

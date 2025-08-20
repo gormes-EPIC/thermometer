@@ -16,7 +16,7 @@ pygame.display.set_caption('thermometer')
 
 screen_delay = 30
 viewt = time.time() + screen_delay
-currv = 13
+currv = 0
 tempt = time.time() + 0.5
 
 #
