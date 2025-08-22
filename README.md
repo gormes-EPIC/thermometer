@@ -7,6 +7,7 @@ Download the directory and install `pygame`, `opencv`, and Adafruit's [DHT libra
 
 ## Displays
 This is a list of all possible temperature display windows. 
+### Bouncing DVD Display - E.Y. 2025
 
 ### Classic Display
 ![classic](https://github.com/gormes-EPIC/thermometer/assets/134316348/8bd66990-c26e-4dab-9f7e-413e9628564f)
@@ -28,6 +29,11 @@ This is a list of all possible temperature display windows.
 
 ### Medieval Display
 ![medieval](https://github.com/gormes-EPIC/thermometer/assets/134316348/b48049de-7f6c-4d62-8a13-8b5a10593499)
+
+### Minecraft Display - C.B. 2025
+<img width="1534" height="950" alt="minecraft_final_scnsht" src="https://github.com/user-attachments/assets/198d24c7-6de1-4795-8d3a-a36c57a29d5f" />
+
+### Night Sky Display - J.H. 2025
 
 ### Oregon Display
 ![oregon](https://github.com/gormes-EPIC/thermometer/assets/134316348/7adc48ed-71e9-4eea-bf3f-66d545dd93e1)
