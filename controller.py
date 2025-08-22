@@ -14,7 +14,7 @@ screen = pygame.display.set_mode((screen_width, screen_height), pygame.FULLSCREE
 # screen = pygame.display.set_mode((1024, 600), 0, 32)
 pygame.display.set_caption('thermometer')
 
-screen_delay = 5
+screen_delay = 30
 viewt = time.time() + screen_delay
 currv = 0
 tempt = time.time() + 0.25
@@ -55,8 +55,8 @@ while True:
     # Check if it's time to switch the display view.
     if time.time() > viewt:
         viewt = time.time() + screen_delay
-        #currv = random.randint(0,13)
-        currv = 14
+        currv = random.randint(0,14)
+        #currv = 14
 
         # Reset screen background.
         background = (0, 0, 0) 
