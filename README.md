@@ -45,6 +45,8 @@ This is a list of all possible temperature display windows.
 
 ### Pokemon Display
 ![pokemon_view](https://github.com/user-attachments/assets/4586fceb-b4e4-4e00-adcd-24eac1a0c754)
+### Random Display - C.F. 2025
+<img width="1029" height="602" alt="Screenshot from 2025-08-22 14-00-05" src="https://github.com/user-attachments/assets/f74764bf-0c07-40ac-a536-70babdd8ff03" />
 
 ### Seventies Display
 ![seventies](https://github.com/gormes-EPIC/thermometer/assets/134316348/97528186-27d4-4790-8d4f-97fc9f7e99f1)
@@ -67,3 +69,4 @@ These are the font available by default. You must include an addition `.ttf` fil
 - E.Y. - 2024, 2025
 - C.B. - 2025
 - J.H. - 2025
+- C.F. - 2025
