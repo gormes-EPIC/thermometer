@@ -14,10 +14,10 @@ screen = pygame.display.set_mode((screen_width, screen_height), pygame.FULLSCREE
 # screen = pygame.display.set_mode((1024, 600), 0, 32)
 pygame.display.set_caption('thermometer')
 
-screen_delay = 30
+screen_delay = 5
 viewt = time.time() + screen_delay
 currv = 0
-tempt = time.time() + 0.5
+tempt = time.time() + 0.25
 
 #
 last_email = 0
@@ -27,7 +27,24 @@ pacman = 0
 a = 0 
 # Variable for Star Wars animation.
 z = 600
-
+# Variables for DVD animation.
+dvdxspeed = 30
+dvdyspeed = 30
+dvdx = 512
+dvdy = 300
+colors = [
+        (255, 0, 0),     # Red
+        (0, 255, 0),     # Green
+        (0, 0, 255),     # Blue
+        (255, 255, 0),   # Yellow
+        (0, 255, 255),   # Cyan
+        (255, 0, 255),   # Magenta
+        (255, 165, 0),   # Orange
+        (128, 0, 128),   # Purple
+        (255, 255, 255), # White
+        (255, 105, 180)  # Pink
+    ]
+usedcolor = random.choice(colors)
 
 # Starting temperature value.
 temp = 70.55
@@ -38,8 +55,8 @@ while True:
     # Check if it's time to switch the display view.
     if time.time() > viewt:
         viewt = time.time() + screen_delay
-        currv = random.randint(0,13)
-        #currv = 13
+        #currv = random.randint(0,13)
+        currv = 14
 
         # Reset screen background.
         background = (0, 0, 0) 
@@ -96,7 +113,20 @@ while True:
     elif currv == 12:
         view.pokemon_display(temp, screen) 
     elif currv == 13:
-        view.minecraft_display(temp, screen) 
+        view.minecraft_display(temp, screen)
+    elif currv == 14:
+        if dvdx > 754 or dvdx < 0:
+            dvdxspeed = -(dvdxspeed)
+            usedcolor = random.choice(colors)
+
+        if dvdy > 500 or dvdy < 100:
+            dvdyspeed = -(dvdyspeed)
+            usedcolor = random.choice(colors)
+
+        dvdx += dvdxspeed
+        dvdy += dvdyspeed
+
+        view.bouncing_temp(temp, dvdxspeed, dvdyspeed, dvdx, dvdy, usedcolor, screen)
 
     # Handle Pygame events.
     for event in pygame.event.get():

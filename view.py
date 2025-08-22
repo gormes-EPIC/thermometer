@@ -1,6 +1,28 @@
 import pygame
 from datetime import date, time, datetime
 import cv2
+import random 
+
+
+def bouncing_temp(temp, dvdxspeed, dvdyspeed, dvdx, dvdy, color, screen):
+
+    black = (0, 0, 0)
+    
+
+    screen.fill(black)
+    
+    dvd = pygame.Rect(dvdx, dvdy, 270, 100)
+    font = pygame.font.SysFont('Impact', 86)
+
+    pygame.draw.ellipse(screen, color, dvd)
+
+    temp_surface = font.render(f"{temp} F°", True, color)
+    temp_rect = temp_surface.get_rect()
+    temp_rect.center = (dvd.centerx, dvd.centery-100)
+    screen.blit(temp_surface, temp_rect)
+
+
+
 
 def classic_display(temp, screen):
     """
@@ -463,3 +485,5 @@ def tetris_display(temp, screen):
         for p in NumberLayout.get(l):
             Spawn_tet_tile(left+(p[0]*size)+(count*size*4.25),(h/2)+(p[1]*size)-size*2,screen, size,pattern,count)
         count += 1
+
+
