@@ -356,7 +356,42 @@ def pokemon_display(temp, screen):
     message_rect = message_text.get_rect()
     message_rect.center = (375, 480)
     screen.blit(message_text, message_rect)
+    
+def random_display(temp, screen):
+    """
+    Function to display the temperature with random colors and locations
+    Created by C.F. 2025
+    """
+    t = 0
+    
+    disp_font = pygame.font.Font('freesansbold.ttf', 60)
+    temp_font = pygame.font.Font('freesansbold.ttf', 200)
+    
+    info = pygame.display.Info()
+    screen_width, screen_height = info.current_w, info.current_h
+    
+    c1 = random.randint(50,225)
+    c2 = random.randint(0,225)
+    c3 = random.randint(0,225)
+            
+    pygame.display.flip()
 
+    x = random.randint(160, screen_width-160)
+    y = random.randint(80,screen_height-170)
+
+    background = (c1,c2,c3)
+    print(c1, c2, c3)
+    screen.fill(background)
+
+    message_text = disp_font.render("Farenheit", True, (c3,c1,c2))
+    message_rect = message_text.get_rect()
+    message_rect.center = (x, y+100)
+    screen.blit(message_text, message_rect)
+
+    message_text = temp_font.render(str(temp), True, (c3,c1,c2))
+    message_rect = message_text.get_rect()
+    message_rect.center = (x, y)
+    screen.blit(message_text, message_rect)
 
 def seventies_display(temp, screen):
     """
