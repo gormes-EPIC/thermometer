@@ -34,6 +34,7 @@ This is a list of all possible temperature display windows.
 <img width="1534" height="950" alt="minecraft_final_scnsht" src="https://github.com/user-attachments/assets/198d24c7-6de1-4795-8d3a-a36c57a29d5f" />
 
 ### Night Sky Display - J.H. 2025
+<img width="1034" height="602" alt="Screenshot from 2025-08-22 13-34-48" src="https://github.com/user-attachments/assets/d0f81f87-129f-4bb4-85eb-36a6b00f6878" />
 
 ### Oregon Display
 ![oregon](https://github.com/gormes-EPIC/thermometer/assets/134316348/7adc48ed-71e9-4eea-bf3f-66d545dd93e1)
