@@ -8,6 +8,7 @@ Download the directory and install `pygame`, `opencv`, and Adafruit's [DHT libra
 ## Displays
 This is a list of all possible temperature display windows. 
 ### Bouncing DVD Display - E.Y. 2025
+<img width="1034" height="602" alt="Screenshot from 2025-08-22 13-36-34" src="https://github.com/user-attachments/assets/e95c3230-1b06-4fe3-9c2f-f9cc6c181360" />
 
 ### Classic Display
 ![classic](https://github.com/gormes-EPIC/thermometer/assets/134316348/8bd66990-c26e-4dab-9f7e-413e9628564f)
@@ -63,4 +64,6 @@ These are the font available by default. You must include an addition `.ttf` fil
 ## List of Contributors
 - Gwyneth Ormes
 - J.P. - 2024
-- E.Y. - 2024
+- E.Y. - 2024, 2025
+- C.B. - 2025
+- J.H. - 2025
