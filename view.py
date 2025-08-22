@@ -1,6 +1,8 @@
 import pygame
 from datetime import date
 import cv2
+import random
+import time
 
 def classic_display(temp, screen):
     """
@@ -113,27 +115,27 @@ def digital_display(temp, screen):
 
 
 
-cap = cv2.VideoCapture('assets/galaga_79sec_480p.mp4')
-success, img = cap.read()
-shape = img.shape[1::-1]
-clock = pygame.time.Clock()
-def galaga_display(temp, screen):
-    """
-    Function to display temperature with a Galaga theme.
-    E.Y. 2024
-    """
-    disp_font = pygame.font.Font('fonts/topaz.ttf', 50)
-    message_text = disp_font.render(str(temp) + " degrees Fahrenheit", True, (255, 255, 255))
-    message_rect = message_text.get_rect()
-    message_rect.center = (512, 550)
-    screen.blit(message_text, message_rect)
+# cap = cv2.VideoCapture('assets/galaga_79sec_480p.mp4')
+# success, img = cap.read()
+# shape = img.shape[1::-1]
+# clock = pygame.time.Clock()
+# def galaga_display(temp, screen):
+#     """
+#     Function to display temperature with a Galaga theme.
+#     E.Y. 2024
+#     """
+#     disp_font = pygame.font.Font('fonts/topaz.ttf', 50)
+#     message_text = disp_font.render(str(temp) + " degrees Fahrenheit", True, (255, 255, 255))
+#     message_rect = message_text.get_rect()
+#     message_rect.center = (512, 550)
+#     screen.blit(message_text, message_rect)
     
-    success, img = cap.read()
-    if success:
-        img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
-        screen.blit(pygame.image.frombuffer(img.tobytes(), shape, "RGB"), (100, 30))
+#     success, img = cap.read()
+#     if success:
+#         img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+#         screen.blit(pygame.image.frombuffer(img.tobytes(), shape, "RGB"), (100, 30))
     
-def lovelace_display(temp, screen):
+# def lovelace_display(temp, screen):
     """
     Function to display temperature with an Ada Lovelace theme.
     """
@@ -438,3 +440,53 @@ def tetris_display(temp, screen):
         for p in NumberLayout.get(l):
             Spawn_tet_tile(left+(p[0]*size)+(count*size*4.25),(h/2)+(p[1]*size)-size*2,screen, size,pattern,count)
         count += 1
+
+
+
+
+def car_display(temp, screen):
+    t = 0
+    
+    disp_font = pygame.font.Font('freesansbold.ttf', 60)
+    temp_font = pygame.font.Font('freesansbold.ttf', 200)
+    
+    info = pygame.display.Info()
+    screen_width, screen_height = info.current_w, info.current_h
+
+    clock = pygame.time.Clock()
+    clock.tick(1)
+    
+    while t <= 30:
+
+        if  t<=30:  
+
+            c1 = random.randint(50,225)
+            c2 = random.randint(0,225)
+            c3 = random.randint(0,225)
+            
+            pygame.display.flip()
+
+            x = random.randint(160, screen_width-160)
+            y = random.randint(80,screen_height-170)
+
+            background = (c1,c2,c3)
+            screen.fill(background)
+
+            message_text = disp_font.render("Farenheit", True, (c3,c1,c2))
+            message_rect = message_text.get_rect()
+            message_rect.center = (x, y+100)
+            screen.blit(message_text, message_rect)
+
+            message_text = temp_font.render(str(temp), True, (c3,c1,c2))
+            message_rect = message_text.get_rect()
+            message_rect.center = (x, y)
+            screen.blit(message_text, message_rect)
+            #clock.tick(1)
+        t = t+1
+
+
+    
+
+
+
+    
