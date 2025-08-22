@@ -38,8 +38,8 @@ while True:
     # Check if it's time to switch the display view.
     if time.time() > viewt:
         viewt = time.time() + screen_delay
-        currv = random.randint(0,12)
-    
+        #currv = random.randint(0,12)
+        currv = 13
 
         # Reset screen background.
         background = (0, 0, 0) 
@@ -95,6 +95,8 @@ while True:
         view.tetris_display(temp, screen)   
     elif currv == 12:
         view.pokemon_display(temp, screen) 
+    elif currv == 13:
+        view.minecraft_display(temp, screen) 
 
     # Handle Pygame events.
     for event in pygame.event.get():
