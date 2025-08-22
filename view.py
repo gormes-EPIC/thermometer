@@ -5,10 +5,11 @@ import random
 
 
 def bouncing_temp(temp, dvdxspeed, dvdyspeed, dvdx, dvdy, color, screen):
-
+    """
+    Function to display the temperature with an old school DVD theme
+    Created by E.Y. 2025
+    """
     black = (0, 0, 0)
-    
-
     screen.fill(black)
     
     dvd = pygame.Rect(dvdx, dvdy, 270, 100)
@@ -142,7 +143,7 @@ clock = pygame.time.Clock()
 def galaga_display(temp, screen):
     """
     Function to display temperature with a Galaga theme.
-    E.Y. 2024
+    Created by E.Y. 2024
     """
     disp_font = pygame.font.Font('fonts/topaz.ttf', 50)
     message_text = disp_font.render(str(temp) + " degrees Fahrenheit", True, (255, 255, 255))
@@ -218,20 +219,18 @@ def medieval_display(temp, screen):
 
 
 def minecraft_display(temp, screen):
+    """
+    Function to display temperature with a Minecraft Theme
+    Created by C.B. 2025
+    """
     img = pygame.image.load('assets/newMinecraftwallpaper2.jpg')
     screen.blit(img,(0,0))
-
-
-
 
     dt_object = datetime.now()
     output_format = "%I:%M:%S %p"
     regular_time_str = dt_object.strftime(output_format)
 
     date_time = f"{date.today()}  {regular_time_str}"
-
-    
-
 
     disp_font2 = pygame.font.Font('fonts/MinecraftTen-VGORe.ttf', 95)
     display_text2 = disp_font2.render(f"{str(temp)}°", True, (255,255,255))
@@ -242,6 +241,10 @@ def minecraft_display(temp, screen):
     screen.blit(display_text1, (0, 15))
 
 def nightsky_display(temp, screen):
+    """
+    Function to display the temperature with a night sky theme
+    Created by J.H. 2025
+    """
     img = pygame.image.load('assets/nightsky.jpeg')
     screen.blit(img, (0,0))
 
@@ -440,7 +443,7 @@ def starwars_display(temp, z, screen):
 
 
 # Function to display temperature with a Tetris theme.
-# - J.P. 2024
+# Created by J.P. 2024
 ColorPatters = [
 [(66, 66, 255),(99, 173, 255)],
 [(16, 148, 0),(140, 214, 0)],
