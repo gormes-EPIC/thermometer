@@ -241,6 +241,33 @@ def minecraft_display(temp, screen):
     display_text1 = disp_font1.render(f"{date_time}", True, (255,255,255))
     screen.blit(display_text1, (0, 15))
 
+def nightsky_display(temp, screen):
+    img = pygame.image.load('assets/nightsky.jpeg')
+    screen.blit(img, (0,0))
+
+    temp_font = pygame.font.Font(None, 500)
+    f_font = pygame.font.Font(None, 300)
+    time_font = pygame.font.SysFont("Arial", 100)
+
+    # Display Fahrenheit text.
+    message_text = f_font.render(str("°F"), True, (173,216,230))
+    message_rect = message_text.get_rect()
+    message_rect.center = (860, 300)
+    screen.blit(message_text, message_rect)
+
+    # Display temperature value.
+    message_text = temp_font.render(str(temp), True, (225,225,225))
+    message_rect = message_text.get_rect()
+    message_rect.center = (400, 250)
+    screen.blit(message_text, message_rect)
+
+    # Display time.
+    time = date.today()
+    message_text = time_font.render(str(time), True, (173,216,230))
+    message_rect = message_text.get_rect()
+    message_rect.center = (500, 500)
+    screen.blit(message_text, message_rect)
+
 def oregon_display(temp, screen):
     """
     Function to display temperature with an Oregon Trail theme.
