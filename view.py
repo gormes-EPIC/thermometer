@@ -438,3 +438,30 @@ def tetris_display(temp, screen):
         for p in NumberLayout.get(l):
             Spawn_tet_tile(left+(p[0]*size)+(count*size*4.25),(h/2)+(p[1]*size)-size*2,screen, size,pattern,count)
         count += 1
+
+def nightsky_display(temp):
+    img = pygame.image.load('nightsky.jpeg')
+    screen.blit(img, (0,0))
+
+    temp_font = pygame.font.Font(None, 500)
+    f_font = pygame.font.Font(None, 300)
+    time_font = pygame.font.SysFont("Arial", 100)
+
+    # Display Fahrenheit text.
+    message_text = f_font.render(str("°F"), True, (173,216,230))
+    message_rect = message_text.get_rect()
+    message_rect.center = (860, 300)
+    screen.blit(message_text, message_rect)
+
+    # Display temperature value.
+    message_text = temp_font.render(str(temp), True, (225,225,225))
+    message_rect = message_text.get_rect()
+    message_rect.center = (400, 250)
+    screen.blit(message_text, message_rect)
+
+    # Display time.
+    time = date.today()
+    message_text = time_font.render(str(time), True, (173,216,230))
+    message_rect = message_text.get_rect()
+    message_rect.center = (500, 500)
+    screen.blit(message_text, message_rect)

@@ -10,8 +10,8 @@ pygame.init()
 # Get the screen dimensions
 info = pygame.display.Info()
 screen_width, screen_height = info.current_w, info.current_h
-screen = pygame.display.set_mode((screen_width, screen_height), pygame.FULLSCREEN)
-# screen = pygame.display.set_mode((1024, 600), 0, 32)
+# screen = pygame.display.set_mode((screen_width, screen_height), pygame.FULLSCREEN)
+screen = pygame.display.set_mode((1024, 600), 0, 32)
 pygame.display.set_caption('thermometer')
 
 screen_delay = 30
@@ -38,7 +38,7 @@ while True:
     # Check if it's time to switch the display view.
     if time.time() > viewt:
         viewt = time.time() + screen_delay
-        currv = random.randint(0,12)
+        currv = random.randint(0,13)
     
 
         # Reset screen background.
@@ -55,7 +55,6 @@ while True:
     if temp == None:
         temp = 70.55
 
-    
         
     temp = round(temp, 1)
     
@@ -94,7 +93,9 @@ while True:
     elif currv == 11:
         view.tetris_display(temp, screen)   
     elif currv == 12:
-        view.pokemon_display(temp, screen) 
+        view.pokemon_display(temp, screen)
+    elif currv == 13:
+        view.nightsky_display(temp,screen)
 
     # Handle Pygame events.
     for event in pygame.event.get():
