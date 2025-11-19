@@ -14,7 +14,7 @@ screen = pygame.display.set_mode((screen_width, screen_height), pygame.FULLSCREE
 # screen = pygame.display.set_mode((1024, 600), 0, 32)
 pygame.display.set_caption('thermometer')
 
-screen_delay = 0
+screen_delay = 30
 viewt = time.time() + screen_delay
 currv = 0
 tempt = time.time() + 0.25
