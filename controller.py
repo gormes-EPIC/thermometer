@@ -55,8 +55,8 @@ while True:
     # Check if it's time to switch the display view.
     if time.time() > viewt:
         viewt = time.time() + screen_delay
-        currv = random.randint(0,16)
-        # currv = 16
+        currv = random.randint(0,17)
+        # currv = 17
 
         # Reset screen background.
         background = (0, 0, 0) 
@@ -131,6 +131,8 @@ while True:
         view.nightsky_display(temp, screen)
     elif currv == 16:
         view.random_display(temp, screen)
+    elif currv == 17:
+        view.fortnite_display(temp, screen)
 
     # Handle Pygame events.
     for event in pygame.event.get():

@@ -552,3 +552,24 @@ def tetris_display(temp, screen):
         count += 1
 
 
+connecting = 0
+def fortnite_display(temp, screen):
+    global connecting
+    screen.fill((255, 0, 0))
+    img = pygame.transform.scale(pygame.image.load('assets/fortnite.png'), (1024, 600))
+    screen.blit(img, (0,0))
+    font = pygame.font.Font('fonts/fortnite_font.otf', 50)
+    temp_surface = font.render(f"Connecting{'.' * connecting}{' ' * (3 - connecting)}", True, (255,255,255))
+    temp_rect = temp_surface.get_rect()
+    temp_rect.center = (150, 525)
+    screen.blit(temp_surface, temp_rect)
+    font = pygame.font.Font('fonts/fortnite_font.otf', 20)
+    temp_surface = font.render(f"Search a chest to find out that the server room is {temp}°F!", True, (255,255,255))
+    temp_rect = temp_surface.get_rect()
+    temp_rect.center = (800, 525)
+    screen.blit(temp_surface, temp_rect)
+    # Manage dots
+    if(connecting < 3):
+        connecting = connecting + 1
+    else:
+        connecting = 0

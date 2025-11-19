@@ -57,6 +57,9 @@ This is a list of all possible temperature display windows.
 ### Tetris Display - J.P. 2024
 ![tetris](https://github.com/gormes-EPIC/thermometer/assets/134316348/f63df171-59a2-40c8-9422-d3767e209f4b)
 
+### Fortnite Display - T.K. 2025
+<img width="1021" height="589" alt="fort_screenshot" src="https://github.com/user-attachments/assets/d666e5e2-fa09-40c1-ba1e-b2d676e49161" />
+
 ## Add a Display
 
 Want to add a display? Create a Python function using pygame for a 1024 by 600 pixel screen. Your function should accept at least one argument `temp`, which is the current temperature in the room. Once your design is complete, create a new branch on the project and upload your code and assets for review!
@@ -70,3 +73,4 @@ These are the font available by default. You must include an addition `.ttf` fil
 - C.B. - 2025
 - J.H. - 2025
 - C.F. - 2025
+- T.K. - 2025
